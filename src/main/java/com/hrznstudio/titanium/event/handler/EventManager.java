@@ -77,7 +77,7 @@ public class EventManager {
         }
 
         public void subscribe() {
-            bus.bus().addListener(priority, false, event, event -> {
+            bus.bus().addGenericListener(priority, false, event, event -> {
                 if (event.getClass().isAssignableFrom(this.event)) {
                     if (this.filter.test(event)) {
                         if (this.cancel) {
